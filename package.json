@@ -1,0 +1,40 @@
+{
+  "name": "weekly-habit-tracker",
+  "productName": "Habit Tracker",
+  "version": "1.0.0",
+  "description": "A personal weekly habit tracker with themes, custom backgrounds and progress analysis.",
+  "author": "Havard",
+  "main": "main.js",
+  "scripts": {
+    "build:html": "node scripts/build-html.js",
+    "start": "npm run build:html && electron .",
+    "dist": "npm run build:html && electron-builder --win portable --x64"
+  },
+  "build": {
+    "appId": "com.havard.habittracker",
+    "productName": "Habit Tracker",
+    "files": [
+      "main.js",
+      "app/**/*"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "HabitTracker-${version}-portable.exe"
+    }
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3",
+    "esbuild": "^0.21.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}
